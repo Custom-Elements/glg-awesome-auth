@@ -18,7 +18,7 @@
       <glg-awesome-auth appName="awesome-auth-example">
           <button id="btn" onclick="logout()">Logout</button>
           <div>
-              You are now logged in!
+              You are now logged in <span id="personalDetails"></span>!
           </div>
       </glg-awesome-auth>
     </div>
@@ -32,6 +32,13 @@
       function logout() {
           awesomeAuth.logout();
       }
+
+        awesomeAuth.addEventListener('glg-awesome-auth-login', function(event){
+            var user = event.detail.user
+            console.log("The user is ", user)
+            var details = document.getElementById('personalDetails');
+            details.innerText = user.FIRST_NAME + ' ' + user.LAST_NAME;
+        })
     </script>
   </body>
 </html>

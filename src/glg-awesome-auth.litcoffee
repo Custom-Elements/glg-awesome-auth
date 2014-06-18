@@ -1,12 +1,13 @@
 #glg-awesome-auth
-*TODO* tell me all about your element.
+This element can be used to verify users are authenticated to your system using [AwesomeAuth](https://github.com/glg/awesome-auth)
 
     require 'awesome-auth-client'
 
     Polymer 'glg-awesome-auth',
 
 ##Events
-*TODO* describe the custom event `name` and `detail` that are fired.
+###glg-awesome-auth-login
+Fired when a user has successfully been authenticated. This will return the information designated in your mapping file on the awesome-auth server on the `event.detail.user` property of the parameter
 
 ##Attributes and Change Handlers
 
@@ -57,10 +58,9 @@
 
       authenticationCallback: (result) ->
         if result.status == 'confirmed' && result.user
-          console.log "Authenticated user:", result.user
           @currentUser = result.user
           @status = 'authenticated'
-          @fire 'polymer-signal', { name:'glg-auth-login',  data:{currentUser:@currentUser} }
+          @fire 'glg-awesome-auth-login', { user:@currentUser }
 
           # user-not-found is returned when the user's email is not valid/authorized
         else if result.status == 'user-not-found'
@@ -82,7 +82,6 @@
 ##Polymer Lifecycle
 
       created: ->
-        console.log("Created!")
         @status = "unknown"
         @awesomeAuth = null
         @icon = 'fa-envelope-o'
@@ -90,7 +89,6 @@
 
       ready: ->
         loginPage = this
-        console.log("Ready!")
         opts =
           appName: @appName
           onAuthStatusChange: (result) ->
