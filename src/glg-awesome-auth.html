@@ -1,0 +1,64 @@
+<link rel="import" href="../node_modules/ui-input/build/ui-input.html">
+<link rel="import" href="../node_modules/ui-button/build/ui-button.html">
+
+
+<polymer-element name="glg-awesome-auth" attributes="appName">
+<template>
+  <link rel="stylesheet" type="text/css" href="./glg-awesome-auth.less">
+
+
+    <template bind ref="{{status}}">
+        <!-- loads appropriate view based on auth status -->
+    </template>
+
+    <template id="unknown">
+        <i class="fa fa-spinner fa-spin"></i>
+    </template>
+
+    <template id="unauthenticated">
+        <form on-submit="{{login}}">
+            <div class="input-field">
+
+                <ui-input id="emailInput" icon="{{icon}}" iconAnimation="{{iconAnimation}}"
+                          type="email" value="{{email}}"
+                          placeholder="Your email address" required autofocus on-keyup="{{submitOnEnter}}">
+                </ui-input>
+
+                <ui-button on-click="{{login}}" icon="fa-key" label="Register">
+                </ui-button>
+            </div>
+        </form>
+
+        <template if="{{errorMessage}}">
+            <div class="error">
+                {{errorMessage}}
+            </div>
+        </template>
+
+    </template>
+
+
+    <template id="authenticating">
+        <div class="waiting">
+            <div class="email-sent">
+                Registration confirmation sent to <span>{{email}}</span><br>
+                Please complete your registration by confirming your account.
+            </div>
+            <ui-button on-click="{{logout}}" label="Use different email"></ui-button>
+        </div>
+    </template>
+
+    <template id="authenticated">
+        <content>
+            <!-- this container's content will appear here -->
+            <!-- unfortunately polymer elements will be made ready, even before shown -->
+        </content>
+    </template>
+
+
+
+
+
+</template>
+<script src="./glg-awesome-auth.litcoffee"></script>
+</polymer-element>

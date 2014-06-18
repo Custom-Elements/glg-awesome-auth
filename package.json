@@ -1,0 +1,18 @@
+{
+  "name": "glg-awesome-auth",
+  "version": "0.0.0",
+  "dependencies": {
+    "polymer-tools": "git://github.com/custom-elements/polymer-tools#master",
+    "polymer": "git://github.com/custom-elements/polymer#master",
+    "ui-styles": "git://github.com/custom-elements/ui-styles#master",
+    "ui-fonts": "git://github.com/custom-elements/ui-fonts#master",
+    "ui-input": "git://github.com/custom-elements/ui-input",
+    "ui-button": "git://github.com/custom-elements/ui-button",
+    "awesome-auth-client": "0.0.38"
+  },
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "polymer-build src/ build/",
+    "test": "polymer-build watch . src/ build/"
+  }
+}
