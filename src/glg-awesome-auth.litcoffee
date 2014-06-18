@@ -2,7 +2,6 @@
 *TODO* tell me all about your element.
 
     require 'awesome-auth-client'
-    storage = window.localStorage
 
     Polymer 'glg-awesome-auth',
 
@@ -44,7 +43,6 @@
             else
               @errorMessage = err
           else if result
-            storage.setItem "aa-email-register", @email
             console.log("Register Callback:", result)
             @status = 'authenticating'
             @errorMessage = null
@@ -54,7 +52,6 @@
         @awesomeAuth.logOut()
         @status = 'unauthenticated'
         @email = ""
-        storage.setItem "aa-email-register", null
         @currentUser = null
 
 
@@ -88,7 +85,6 @@
         console.log("Created!")
         @status = "unknown"
         @awesomeAuth = null
-        @email = storage.getItem("aa-email-register") || ""
         @icon = 'fa-envelope-o'
         @iconAnimation = ''
 
