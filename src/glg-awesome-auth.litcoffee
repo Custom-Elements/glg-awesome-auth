@@ -7,7 +7,7 @@ This element can be used to verify users are authenticated to your system using 
 
 ##Events
 ###glg-awesome-auth-login
-Fired when a user has successfully been authenticated. This will return the information designated in your mapping file on the awesome-auth server on the `event.detail.user` property of the parameter
+Fired when a user has successfully been authenticated. This will return the results of the [getUserInfo](https://github.com/glg/awesome-auth#customize-registration) method on the `event.detail.user` property of the event
 
 ##Attributes and Change Handlers
 
