@@ -1,35 +1,45 @@
 :host {
   display: block;
+
+  #emailInput {
+    width: 80%;
+    max-width: 640px;
+  }
+
+  .waiting {
+    text-align: center;
+  }
+
+  .email-sent {
+    line-height: 2;
+    margin-bottom: 1em;
+  }
+
+  .email-sent span {
+    font-weight: bold;
+  }
+
+  .error{
+    color: red;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  #emailInput, #loginButton {
+    display: inline-block;
+  }
+
+  .input-field {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+  }
+
+  #loginButton {
+  //  flex: 0;
+  }
 }
 
 @import "../node_modules/ui-fonts/build/font-awesome-styles";
-
-
-i {
-  margin-left: 49%;
-  font-size: 30px;
-}
-
-#emailInput {
-  width: 80%;
-  max-width: 640px;
-}
-
-.waiting {
-  text-align: center;
-}
-
-.email-sent {
-  line-height: 2;
-  margin-bottom: 1em;
-}
-
-.email-sent span {
-  font-weight: bold;
-}
-
-.error{
-  color: red;
-  margin-left: 5px;
-  margin-top: 5px;
-}
