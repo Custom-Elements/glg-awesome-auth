@@ -6,7 +6,7 @@ This element can be used to verify users are authenticated to your system using 
     Polymer 'glg-awesome-auth',
 
 ##Events
-###glg-awesome-auth-login
+##glg-awesome-auth-login
 Fired when a user has successfully been authenticated. This will return the results of the [getUserInfo](https://github.com/glg/awesome-auth#customize-registration) method on the `event.detail.user` property of the event
 
 ##Attributes and Change Handlers
@@ -34,7 +34,19 @@ Fired when a user has successfully been authenticated. This will return the resu
         console.log "Registering..."
         @icon = 'fa-spinner'
         @iconAnimation = 'fa-spin'
-        @awesomeAuth.register @email, (err, result) =>
+
+        if @emailFrom || @emailSubject || @friendlyAppName || @confirmationRedirect
+          registrationData = {}
+          registrationData.emailFrom = @emailFrom
+          registrationData.emailSubject = @emailSubject
+          registrationData.friendlyAppName = @friendlyAppName
+          registrationData.confirmationRedirect = @confirmationRedirect
+          registrationData.email = @email
+        else
+          registrationData = @email
+
+
+        @awesomeAuth.register registrationData, (err, result) =>
           @icon = 'fa-envelope-o'
           @iconAnimation = ''
           if err
@@ -93,6 +105,7 @@ Fired when a user has successfully been authenticated. This will return the resu
           appName: @appName
           onAuthStatusChange: (result) ->
             loginPage.authenticationCallback result
+          registrationServers: ["ws://localhost:4000/registration"]
         @awesomeAuth = new AwesomeAuth opts
 
       attached: ->
