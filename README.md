@@ -15,9 +15,13 @@ To use this element, pass the parameter `appName` the name of your mapping file.
 If you do not require a custom mapping file and are using the [default mapping file](https://github.com/glg/awesome-auth/blob/master/mappings/glg-internal-app.coffee) for an internal application, there are additional parameters that can be supplied to customize the login experience.
 
 `emailFrom` is the sender of the registration email
+
 `emailSubject` is the subject of the registration email
+
 `friendlyAppName` is the name of your application
-`confirmationRedirect` is where the user is brought after registering
+
+`confirmationRedirect` is where the user is redirected to after clicking the confirmation link in the email.
+
 
 ```html
 <glg-awesome-auth appName="glg-internal-app" 
