@@ -15,7 +15,12 @@
   </head>
   <body unresolved>
     <div id="holder">
-      <glg-awesome-auth appName="glg-internal-app" emailFrom="khughes@glgroup.com" emailSubject="Welcome to the application!" friendlyAppName="My test app" confirmationRedirect="http://localhost:10000/demo.html">
+      <glg-awesome-auth appName="glg-internal-app"
+                        emailFrom="khughes@glgroup.com"
+                        emailSubject="Welcome to GLG Mobile!"
+                        friendlyAppName="GLG Mobile"
+                        confirmationRedirect="http://localhost:10000/demo.html">
+
           <button id="btn" onclick="logout()">Logout</button>
           <div>
               You are now logged in <span id="personalDetails"></span>!
@@ -36,7 +41,7 @@
             var user = event.detail.user
             console.log("The user is ", user)
             var details = document.getElementById('personalDetails');
-            details.innerText = user.FIRST_NAME + ' ' + user.LAST_NAME;
+            details.innerText = user.currentUser.rmFirstName + ' ' + user.currentUser.rmLastName;
         })
     </script>
   </body>
