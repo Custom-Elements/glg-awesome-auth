@@ -105,7 +105,6 @@ Fired when a user has successfully been authenticated. This will return the resu
           appName: @appName
           onAuthStatusChange: (result) ->
             loginPage.authenticationCallback result
-          registrationServers: ["ws://localhost:4000/registration"]
         @awesomeAuth = new AwesomeAuth opts
 
       attached: ->
