@@ -1,9 +1,40 @@
+@import "../node_modules/ui-fonts/font-awesome-styles";
+
 :host {
   display: block;
+.input-field {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+  }
 
   #emailInput {
-    width: 80%;
-    max-width: 640px;
+    min-width: 20em;
+    flex: 1;
+  }
+
+  #loginButton {
+    flex: 0;
+    min-width: 7em;
+  }
+
+  @media only screen and (max-width : 480px) {
+    .input-field {
+      display: block;
+      text-align: center;
+    }
+
+    #emailInput {
+      display: block;
+      margin-bottom: 0.8em;
+    }
+
+    #loginButton {
+      display: inline-block;
+      width: initial;
+    }
   }
 
   .waiting {
@@ -19,27 +50,25 @@
     font-weight: bold;
   }
 
-  .error{
+  .error {
     color: red;
     margin-left: 0.5em;
     margin-top: 0.5em;
   }
-
-  #emailInput, #loginButton {
-    display: inline-block;
-  }
-
-  .input-field {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-  }
-
-  #loginButton {
-  //  flex: 0;
-  }
 }
 
-@import "../node_modules/ui-fonts/font-awesome-styles";
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  min-height: 20em;
+  align-items: center;
+  justify-content: center;
+
+  #unauthenticated-form {
+    max-width: 30em;
+    margin: 0 auto;
+  }
+}
