@@ -6,3 +6,10 @@
 .awesome-auth-unauthorized glg-awesome-auth {
   padding-top: 10em;
 }
+
+@media only screen and (max-width : 480px) {
+  .awesome-auth-unauthorized glg-awesome-auth::shadow .container {
+      padding: 1em;
+      margin: 1em;
+  }
+}
