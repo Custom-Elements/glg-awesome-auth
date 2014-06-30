@@ -11,6 +11,9 @@ Fired when a user has successfully been authenticated. This will return the resu
 
 ##Attributes and Change Handlers
 
+  * **bodyClass** Added to the body of the page when the user is not authorized yet.
+    Defaults to `awesome-auth-unauthorized`.
+
 ##Methods
 
       submitOnEnter: (e) ->
@@ -66,10 +69,15 @@ Fired when a user has successfully been authenticated. This will return the resu
         @status = 'unauthenticated'
         @email = ""
         @currentUser = null
-
+        body = document.querySelector('body')
+        body.classList?.add @bodyClass
 
       authenticationCallback: (result) ->
+        body = document.querySelector('body')
+        body.classList?.add @bodyClass
+
         if result.status == 'confirmed' && result.user
+          body.classList?.remove @bodyClass
           @currentUser = result.user
           @status = 'authenticated'
           @fire 'glg-awesome-auth-login', { user:@currentUser }
@@ -98,6 +106,7 @@ Fired when a user has successfully been authenticated. This will return the resu
         @awesomeAuth = null
         @icon = 'fa-envelope-o'
         @iconAnimation = ''
+        @bodyClass = 'awesome-auth-unauthorized'
 
       ready: ->
         loginPage = this

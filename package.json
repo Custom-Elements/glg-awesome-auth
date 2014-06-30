@@ -13,5 +13,8 @@
   "license": "ISC",
   "scripts": {
     "test": "polymer-build watch . src/ build/"
-  }
+  },
+  "files": [
+    "src/"
+  ]
 }

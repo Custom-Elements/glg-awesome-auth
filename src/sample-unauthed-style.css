@@ -1,0 +1,8 @@
+.awesome-auth-unauthorized {
+  background: #333 url('world-background.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.awesome-auth-unauthorized glg-awesome-auth {
+  padding-top: 10em;
+}
