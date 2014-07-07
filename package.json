@@ -8,7 +8,7 @@
     "ui-fonts": "git://github.com/custom-elements/ui-fonts#master",
     "ui-input": "git://github.com/custom-elements/ui-input",
     "ui-button": "git://github.com/custom-elements/ui-button",
-    "awesome-auth-client": "0.0.38"
+    "awesome-auth-client": "0.0.40"
   },
   "license": "ISC",
   "scripts": {
